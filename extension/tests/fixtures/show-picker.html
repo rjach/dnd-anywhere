@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>showPicker</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>Button calls input.showPicker()</h1>
+    <button class="btn" id="upload" type="button">Select file</button>
+    <input id="file" type="file" hidden />
+    <p id="result"></p>
+    <script>
+      const input = document.getElementById("file");
+      input.addEventListener("change", () => showFiles(input.files));
+      // No label link and the button isn't next to the input: only trigger capture can find this.
+      document.getElementById("upload").addEventListener("click", () => input.showPicker());
+      document.body.append(input);
+    </script>
+  </body>
+</html>

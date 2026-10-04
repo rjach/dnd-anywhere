@@ -1,0 +1,21 @@
+body {
+  font:
+    16px/1.5 system-ui,
+    sans-serif;
+  margin: 24px;
+}
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #1f2937;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  font: inherit;
+}
+#result {
+  margin-top: 16px;
+  min-height: 1.5em;
+  font-family: ui-monospace, monospace;
+}

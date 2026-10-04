@@ -1,0 +1,19 @@
+---
+import { Content as Changelog } from "../../../CHANGELOG.md";
+import Prose from "../layouts/Prose.astro";
+---
+
+<Prose title="Changelog" description="Every DnD Anywhere release and what changed.">
+  <p>
+    Every release is listed here and on
+    <a href="https://github.com/rjach/dnd-anywhere/releases">GitHub Releases</a>, where you can also
+    download the exact files submitted to the stores.
+  </p>
+  <div class="entries"><Changelog /></div>
+</Prose>
+
+<style>
+  .entries :global(h1) {
+    display: none;
+  }
+</style>

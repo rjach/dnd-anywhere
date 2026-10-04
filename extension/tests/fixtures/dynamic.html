@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dynamic input</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>Input added after load</h1>
+    <div id="slot"></div>
+    <p id="result"></p>
+    <script>
+      setTimeout(() => {
+        document.getElementById("slot").innerHTML =
+          '<input id="file" type="file" aria-label="Late upload">';
+        document
+          .getElementById("file")
+          .addEventListener("change", (event) => showFiles(event.target.files));
+        document.body.dataset.ready = "true";
+      }, 300);
+    </script>
+  </body>
+</html>

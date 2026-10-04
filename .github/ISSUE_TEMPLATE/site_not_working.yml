@@ -1,0 +1,75 @@
+name: Site not working
+description: Drop zones don't appear, or a drop doesn't reach the site.
+title: "Site not working: "
+labels: [site-compat, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Issues are **public**: please don't paste private links (with tokens, IDs or personal paths), personal information or file contents. The site's origin (like `https://example.com`) is enough.
+  - type: input
+    id: site
+    attributes:
+      label: Site origin
+      description: Only the scheme and domain, e.g. https://example.com
+      placeholder: https://example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: control
+    attributes:
+      label: What kind of upload control is it?
+      options:
+        - A visible file field ("Choose file / No file chosen")
+        - A styled button ("Upload", "Browse…", "Attach")
+        - An icon button (paperclip, cloud, plus)
+        - A menu that opens first (e.g. "New → File upload")
+        - Inside an embedded form or widget
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: What happens?
+      options:
+        - No drop zone appears
+        - The drop zone appears but the site ignores the file
+        - '"This button didn''t take the drop"'
+        - The file goes to the wrong field
+        - Something on the page breaks
+        - Other (describe below)
+    validations:
+      required: true
+  - type: dropdown
+    id: picker
+    attributes:
+      label: Does the site's normal file picker work?
+      options:
+        - "Yes"
+        - "No"
+        - Didn't try
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Do you need to be logged in? Which page or button?
+      placeholder: |
+        1. Go to the "Attachments" tab
+        2. Drag a PDF onto "Add file"
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostic report
+      description: Toolbar button → "Copy diagnostic report", then paste here. It contains versions and counts only.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      placeholder: "0.1.0"
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Chrome 141

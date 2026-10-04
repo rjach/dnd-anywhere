@@ -1,0 +1,24 @@
+{
+  "extends": "./.wxt/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "entrypoints",
+    "src",
+    "tests",
+    "scripts",
+    "*.ts",
+    ".wxt/wxt.d.ts"
+  ],
+  "exclude": [
+    "tests/fixtures"
+  ]
+}

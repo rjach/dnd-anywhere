@@ -1,0 +1,50 @@
+---
+import { SITE } from "../site";
+
+const stores = [
+  { id: "chrome", label: "Add to Chrome", url: SITE.stores.chrome },
+  { id: "edge", label: "Add to Edge", url: SITE.stores.edge },
+  { id: "firefox", label: "Add to Firefox", url: SITE.stores.firefox },
+];
+const [primary, ...others] = stores;
+---
+
+<div class="install">
+  {
+    primary!.url ? (
+      <a class="button primary" href={primary!.url}>
+        {primary!.label}
+      </a>
+    ) : (
+      <span class="button primary" aria-disabled="true">
+        Chrome Web Store: coming soon
+      </span>
+    )
+  }
+  <a class="button" href={`${SITE.repository}#install-from-source`}>Install from source</a>
+  <p class="others">
+    {
+      others.map((store, index) => (
+        <>
+          {index > 0 && " · "}
+          {store.url ? <a href={store.url}>{store.label}</a> : <span>{store.label} (soon)</span>}
+        </>
+      ))
+    }
+  </p>
+</div>
+
+<style>
+  .install {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .others {
+    flex-basis: 100%;
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: var(--text-3);
+  }
+</style>

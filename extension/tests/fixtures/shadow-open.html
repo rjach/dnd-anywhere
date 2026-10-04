@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Open shadow root</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>Input inside an open shadow root</h1>
+    <x-uploader id="host"></x-uploader>
+    <p id="result"></p>
+    <script>
+      const root = document.getElementById("host").attachShadow({ mode: "open" });
+      root.innerHTML =
+        '<label style="display:inline-block;padding:8px 16px;background:#333;color:#fff">Upload<input type="file" hidden></label>';
+      root
+        .querySelector("input")
+        .addEventListener("change", (event) => showFiles(event.target.files));
+    </script>
+  </body>
+</html>

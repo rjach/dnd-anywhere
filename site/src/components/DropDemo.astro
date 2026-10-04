@@ -1,0 +1,254 @@
+---
+/**
+ * Looping illustration of the extension at work: a file is dragged onto a form
+ * that only has a "Browse…" button, a drop zone appears, and the file lands.
+ * Pure CSS; with reduced motion it shows the finished state.
+ */
+---
+
+<figure class="demo" aria-label="Animation: a PDF is dragged onto a Browse button and gets attached">
+  <div class="window" aria-hidden="true">
+    <div class="chrome">
+      <span></span><span></span><span></span>
+      <div class="url">careers.example.com/apply</div>
+    </div>
+    <div class="form">
+      <div class="field">
+        <div class="label">Full name</div>
+        <div class="input">Ada Lovelace</div>
+      </div>
+      <div class="field">
+        <div class="label">Resume</div>
+        <div class="upload">
+          <div class="browse">
+            Browse…
+            <div class="zone"><span>Drop to upload</span></div>
+          </div>
+          <div class="status">
+            <span class="empty">No file chosen</span>
+            <span class="done">✓ resume.pdf</span>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="label">Cover letter</div>
+        <div class="input tall"></div>
+      </div>
+    </div>
+    <div class="file">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"
+        ><path
+          fill="currentColor"
+          d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V9h5.5L13 3.5Z"></path></svg
+      >
+      resume.pdf
+    </div>
+  </div>
+</figure>
+
+<style>
+  .demo {
+    margin: 0;
+    --cycle: 6s;
+  }
+  .window {
+    position: relative;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    background: var(--bg-raised);
+    box-shadow: var(--shadow);
+    overflow: visible;
+    font-size: 14px;
+  }
+  .chrome {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .chrome > span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--line-strong);
+  }
+  .url {
+    margin-left: 10px;
+    flex: 1;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--bg-sunken);
+    color: var(--text-3);
+    font: 12px/1.4 var(--mono);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .form {
+    display: grid;
+    gap: 16px;
+    padding: 22px;
+  }
+  .label {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .input {
+    height: 38px;
+    padding: 8px 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    color: var(--text-2);
+  }
+  .input.tall {
+    height: 64px;
+  }
+  .upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .browse {
+    position: relative;
+    padding: 9px 16px;
+    border-radius: 8px;
+    background: var(--text);
+    color: var(--bg);
+    font-weight: 600;
+  }
+  .zone {
+    position: absolute;
+    inset: -8px;
+    border: 2px dashed var(--accent);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    opacity: 0;
+    animation: zone var(--cycle) infinite;
+  }
+  .zone span {
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .status {
+    position: relative;
+    color: var(--text-3);
+  }
+  .done {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    color: var(--ok);
+    font-weight: 600;
+    opacity: 0;
+    animation: done var(--cycle) infinite;
+  }
+  .empty {
+    animation: empty var(--cycle) infinite;
+  }
+  .file {
+    position: absolute;
+    right: -18px;
+    top: 34%;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: var(--bg-raised);
+    border: 1px solid var(--line-strong);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    color: #c2410c;
+    font-weight: 600;
+    font-size: 13px;
+    animation: drag var(--cycle) infinite cubic-bezier(0.45, 0.05, 0.25, 1);
+  }
+  @keyframes drag {
+    0%,
+    8% {
+      transform: translate(0, -80px) rotate(4deg);
+      opacity: 0;
+    }
+    16% {
+      transform: translate(0, -80px) rotate(4deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-58%, 32px) rotate(-2deg);
+      opacity: 1;
+    }
+    58% {
+      transform: translate(-58%, 34px) scale(0.92);
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes zone {
+    0%,
+    22% {
+      opacity: 0;
+    }
+    28%,
+    56% {
+      opacity: 1;
+    }
+    62%,
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes done {
+    0%,
+    58% {
+      opacity: 0;
+    }
+    64%,
+    92% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes empty {
+    0%,
+    22% {
+      opacity: 1;
+    }
+    26%,
+    94% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @media (max-width: 640px) {
+    .file {
+      right: 8px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .file,
+    .zone,
+    .empty {
+      opacity: 0 !important;
+    }
+    .done {
+      opacity: 1 !important;
+    }
+  }
+</style>

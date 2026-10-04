@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Page with its own drop zone</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>The page handles drag and drop itself</h1>
+    <div id="zone" style="padding: 40px; border: 2px dashed #999; width: 400px">
+      Site's own drop zone
+      <input id="file" type="file" onchange="showFiles(this.files, 'input:')" />
+    </div>
+    <p id="result"></p>
+    <script>
+      const zone = document.getElementById("zone");
+      zone.addEventListener("dragover", (event) => event.preventDefault());
+      zone.addEventListener("drop", (event) => {
+        event.preventDefault();
+        showFiles(event.dataTransfer.files, "native:");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+# Planning notes (kept local)
+PLAN.md
+
+node_modules/
+.output/
+.wxt/
+dist/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+extension/tests/fixtures/react/dist/
+extension/stats.html
+site/.astro/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+.vitest/

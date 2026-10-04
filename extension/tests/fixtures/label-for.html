@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hidden input with label</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>Hidden input + label for</h1>
+    <label class="btn" for="file">Choose a file</label>
+    <input id="file" type="file" hidden onchange="showFiles(this.files)" />
+    <p id="result"></p>
+  </body>
+</html>

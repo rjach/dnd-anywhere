@@ -1,0 +1,190 @@
+---
+import "../styles/global.css";
+import { SITE, href } from "../site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE.description } = Astro.props;
+const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name}: ${SITE.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL(href("og.png"), Astro.site).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: SITE.name,
+  description: SITE.description,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome, Edge, Firefox",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  license: "https://opensource.org/licenses/MIT",
+  url: new URL(href(""), Astro.site).toString(),
+  author: { "@type": "Person", name: SITE.owner, url: SITE.ownerUrl },
+};
+const nav = [
+  { label: "Support", path: "support/" },
+  { label: "Privacy", path: "privacy/" },
+  { label: "Changelog", path: "changelog/" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={href("favicon.svg")} />
+    <meta name="theme-color" content="#2257d6" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href={href("")}>
+          <img src={href("favicon.svg")} width="28" height="28" alt="" />
+          <span>{SITE.name}</span>
+        </a>
+        <nav aria-label="Main">
+          {
+            nav.map((item) => (
+              <a
+                href={href(item.path)}
+                aria-current={Astro.url.pathname.endsWith(item.path) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+          <a href={SITE.repository} class="gh">GitHub</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap foot">
+        <p>
+          <strong>{SITE.name}</strong> is free and open source under the{" "}
+          <a href={`${SITE.repository}/blob/main/LICENSE`}>MIT License</a>. Made by{" "}
+          <a href={SITE.ownerUrl}>{SITE.owner}</a>.
+        </p>
+        <nav aria-label="Footer">
+          <a href={href("privacy/")}>Privacy</a>
+          <a href={href("terms/")}>Terms</a>
+          <a href={href("support/")}>Support</a>
+          <a href={href("changelog/")}>Changelog</a>
+          <a href={SITE.repository}>Source</a>
+        </nav>
+        <p class="fine">
+          Not affiliated with Google, Microsoft or Mozilla. Chrome is a trademark of Google LLC.
+          This site uses no cookies and no analytics.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    padding: 8px 12px;
+    background: var(--bg-raised);
+    border-radius: 8px;
+    z-index: 10;
+  }
+  .skip:focus {
+    left: 16px;
+  }
+  .site-header {
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: saturate(1.4) blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 60px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .site-header nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .site-header nav a {
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: var(--text-2);
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .site-header nav a:hover,
+  .site-header nav a[aria-current="page"] {
+    color: var(--text);
+    background: var(--bg-sunken);
+  }
+  @media (max-width: 560px) {
+    .brand span {
+      display: none;
+    }
+    .site-header nav a:not(.gh):nth-child(3) {
+      display: none;
+    }
+  }
+  .site-footer {
+    margin-top: 96px;
+    border-top: 1px solid var(--line);
+    padding: 40px 0 56px;
+    color: var(--text-2);
+    font-size: 15px;
+  }
+  .foot {
+    display: grid;
+    gap: 14px;
+  }
+  .foot p {
+    margin: 0;
+  }
+  .foot nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+  .fine {
+    color: var(--text-3);
+    font-size: 13px;
+  }
+</style>

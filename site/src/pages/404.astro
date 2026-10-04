@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../site";
+---
+
+<Base title="Page not found">
+  <section class="wrap prose missing">
+    <h1>Nothing to drop here.</h1>
+    <p>This page doesn't exist. It may have moved.</p>
+    <p><a class="button primary" href={href("")}>Go to the home page</a></p>
+  </section>
+</Base>
+
+<style>
+  .missing {
+    padding: 96px 0 24px;
+  }
+</style>

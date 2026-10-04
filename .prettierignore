@@ -1,0 +1,12 @@
+PLAN.md
+pnpm-lock.yaml
+CHANGELOG.md
+.output/
+.wxt/
+dist/
+coverage/
+test-results/
+playwright-report/
+site/.astro/
+extension/tests/fixtures/vendor/
+extension/tests/e2e/**/*-snapshots/

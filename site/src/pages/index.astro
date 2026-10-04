@@ -1,0 +1,389 @@
+---
+import DropDemo from "../components/DropDemo.astro";
+import InstallButtons from "../components/InstallButtons.astro";
+import Base from "../layouts/Base.astro";
+import { SITE, href } from "../site";
+
+const cases = [
+  {
+    title: "Browse-only buttons",
+    body: "Styled “Upload” or “Choose file” buttons that hide the real file field.",
+  },
+  {
+    title: "Buttons that build their picker on click",
+    body: "Upload widgets that create a file field only when clicked. DnD Anywhere clicks for you and hands over your files instead of a dialog.",
+  },
+  {
+    title: "Web components",
+    body: "File fields inside shadow DOM, including closed shadow roots.",
+  },
+  {
+    title: "Embedded forms",
+    body: "Upload fields inside iframes, such as embedded job applications and support forms.",
+  },
+  {
+    title: "React, Vue and other frameworks",
+    body: "Files arrive through the same events a real file pick fires, so app state updates normally.",
+  },
+  {
+    title: "Sites with their own drop zone",
+    body: "Left alone. Hold Alt (Option) while dragging if you'd rather use ours.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Why does it ask to “read and change all your data on all websites”?",
+    a: "Chrome shows that warning for any extension whose script runs on every site. Upload fields can be on any page, so a small script has to be present to find them. It does nothing until you drag files into the window, and it never reads or sends page content anywhere. The code is public.",
+  },
+  {
+    q: "Does it upload my files anywhere?",
+    a: "No. It makes no network requests at all. The files you drop go into the upload field you dropped them on, exactly as if you had picked them in the file dialog. What happens next is up to that website.",
+  },
+  {
+    q: "It doesn't work on a site I use. What now?",
+    a: "Some sites check whether a click came from a real person, or use unusual pickers. When a drop doesn't take, DnD Anywhere offers to open the normal file picker. Please report the site from the toolbar button so we can add support.",
+  },
+  {
+    q: "Can I turn it off for a site?",
+    a: "Yes. Click the toolbar button and switch it off for that site. You can also turn it off everywhere from Options.",
+  },
+  {
+    q: "Which browsers are supported?",
+    a: "Chrome and other Chromium browsers (Edge, Brave, Arc, Opera) first, then Firefox 128 and later.",
+  },
+  {
+    q: "Is it really free?",
+    a: "Yes. It's MIT-licensed open source, with no ads, accounts or paid tier.",
+  },
+];
+---
+
+<Base>
+  <section class="hero wrap">
+    <div class="copy">
+      <p class="eyebrow">Free browser extension · Open source</p>
+      <h1>Drag and drop files into <em>any</em> upload button.</h1>
+      <p class="lead">
+        Plenty of sites only give you a “Browse…” button. DnD Anywhere turns every file field and
+        upload button into a drop zone, on every website. No account, no tracking, no network
+        requests.
+      </p>
+      <InstallButtons />
+    </div>
+    <DropDemo />
+  </section>
+
+  <section class="steps wrap" aria-labelledby="how">
+    <h2 id="how" class="eyebrow">How it works</h2>
+    <ol>
+      <li>
+        <span class="num">1</span>
+        <h3>Drag files into the window</h3>
+        <p>From your desktop, Finder, Explorer or another app.</p>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <h3>Drop zones appear</h3>
+        <p>Every upload field on the page lights up, labeled with what it accepts.</p>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <h3>Drop, done</h3>
+        <p>The site receives your files as if you'd picked them in the file dialog.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="try wrap" aria-labelledby="try-title">
+    <div>
+      <h2 id="try-title">Try it here</h2>
+      <p>
+        This field only has a button. With the extension installed, drag a file from your computer
+        onto it. Nothing is uploaded: the file stays in this page.
+      </p>
+    </div>
+    <div class="try-box">
+      <label class="button primary" for="try-input">Browse…</label>
+      <input id="try-input" type="file" multiple hidden />
+      <output id="try-output" for="try-input" aria-live="polite">No file chosen</output>
+    </div>
+  </section>
+
+  <section class="cases wrap" aria-labelledby="works">
+    <h2 id="works" class="eyebrow">Works with</h2>
+    <ul>
+      {
+        cases.map((item) => (
+          <li>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="privacy wrap" aria-labelledby="privacy-title">
+    <div class="privacy-card">
+      <h2 id="privacy-title">Private by construction</h2>
+      <ul>
+        <li><strong>Zero network requests.</strong> A CI check fails any build that adds one.</li>
+        <li><strong>No data collection.</strong> No analytics, telemetry or crash reports.</li>
+        <li><strong>One permission:</strong> storage, for your settings.</li>
+        <li><strong>Readable code.</strong> The shipped extension isn't minified, so anyone can audit it.</li>
+      </ul>
+      <p>
+        <a href={href("privacy/")}>Read the privacy policy</a>{" · "}
+        <a href={SITE.repository}>Read the code</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="faq wrap" aria-labelledby="faq-title">
+    <h2 id="faq-title">Questions</h2>
+    {
+      faqs.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))
+    }
+  </section>
+
+  <section class="cta wrap">
+    <h2>Stop hunting for files in the picker.</h2>
+    <InstallButtons />
+  </section>
+</Base>
+
+<script>
+  const input = document.getElementById("try-input") as HTMLInputElement | null;
+  const output = document.getElementById("try-output");
+  input?.addEventListener("change", () => {
+    const names = [...(input.files ?? [])].map((file) => file.name);
+    if (output) output.textContent = names.length ? `Received: ${names.join(", ")}` : "No file chosen";
+  });
+</script>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
+    padding: 72px 0 56px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5.4vw, 60px);
+    letter-spacing: -0.035em;
+    margin: 14px 0 18px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .lead {
+    font-size: 19px;
+    color: var(--text-2);
+    margin: 0 0 28px;
+    max-width: 34em;
+  }
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-top: 48px;
+    }
+  }
+
+  .steps {
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+  }
+  .steps ol {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .steps h3 {
+    font-size: 18px;
+    margin: 12px 0 4px;
+  }
+  .steps p {
+    margin: 0;
+    color: var(--text-2);
+  }
+  .num {
+    display: inline-grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px dashed var(--accent);
+    color: var(--accent);
+    font: 600 14px/1 var(--mono);
+  }
+  @media (max-width: 720px) {
+    .steps ol {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .try {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+    margin-top: 32px;
+    padding: 32px;
+    border-radius: 20px;
+    background: var(--bg-sunken);
+    border: 1px solid var(--line);
+  }
+  .try h2 {
+    font-size: 26px;
+  }
+  .try p {
+    color: var(--text-2);
+    margin: 8px 0 0;
+  }
+  .try-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    padding: 28px;
+    border-radius: 14px;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+  }
+  #try-output {
+    color: var(--text-3);
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 720px) {
+    .try {
+      grid-template-columns: 1fr;
+      padding: 22px;
+    }
+    .try-box {
+      padding: 20px;
+    }
+  }
+
+  .cases {
+    padding: 72px 0 24px;
+  }
+  .cases ul {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .cases li {
+    padding: 24px 24px 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .cases h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+  .cases p {
+    margin: 0;
+    color: var(--text-2);
+    font-size: 15.5px;
+  }
+  @media (max-width: 860px) {
+    .cases ul {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .cases ul {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .privacy {
+    padding: 48px 0;
+  }
+  .privacy-card {
+    padding: 36px;
+    border-radius: 20px;
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+  .privacy-card h2 {
+    font-size: clamp(26px, 3.4vw, 34px);
+  }
+  .privacy-card ul {
+    margin: 18px 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 8px;
+  }
+  .privacy-card p {
+    margin: 0;
+  }
+  @media (max-width: 560px) {
+    .privacy-card {
+      padding: 24px;
+    }
+  }
+
+  .faq {
+    max-width: 780px;
+    padding: 40px 0;
+  }
+  .faq h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+  details {
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17.5px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::after {
+    content: "+";
+    color: var(--text-3);
+    font: 400 22px/1 var(--mono);
+  }
+  details[open] summary::after {
+    content: "−";
+  }
+  details p {
+    margin: 10px 0 0;
+    color: var(--text-2);
+  }
+
+  .cta {
+    text-align: left;
+    padding: 56px 0 0;
+    display: grid;
+    gap: 20px;
+  }
+  .cta h2 {
+    font-size: clamp(28px, 4vw, 40px);
+  }
+</style>

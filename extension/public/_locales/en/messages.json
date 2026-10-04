@@ -1,0 +1,389 @@
+{
+  "extName": {
+    "message": "DnD Anywhere",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Drag and drop files onto any upload button on any website. No data collection, no network requests.",
+    "description": "Store and manifest description, max 132 characters"
+  },
+  "actionTitle": {
+    "message": "DnD Anywhere",
+    "description": "Toolbar button tooltip"
+  },
+  "zoneDrop": {
+    "message": "Drop to upload",
+    "description": "Label on a drop zone"
+  },
+  "zoneTry": {
+    "message": "Try dropping here",
+    "description": "Label on a drop zone found by guessing (an upload button)"
+  },
+  "zoneNotAccepted": {
+    "message": "Not accepted here",
+    "description": "Drop zone label when dragged file types don't match"
+  },
+  "zonePageWide": {
+    "message": "Drop anywhere to upload to $FIELD$",
+    "description": "Whole-page drop zone label",
+    "placeholders": {
+      "field": {
+        "content": "$1"
+      }
+    }
+  },
+  "zoneAccepts": {
+    "message": "$TYPES$ only",
+    "description": "Accepted file types under a drop zone label, e.g. 'PDF, PNG only'",
+    "placeholders": {
+      "types": {
+        "content": "$1"
+      }
+    }
+  },
+  "offscreenAbove": {
+    "message": "$COUNT$ more upload field(s) above",
+    "description": "Edge indicator for zones scrolled out of view",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "offscreenBelow": {
+    "message": "$COUNT$ more upload field(s) below",
+    "description": "Edge indicator for zones scrolled out of view",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "fileCountOne": {
+    "message": "1 file",
+    "description": "Singular file count"
+  },
+  "fileCountMany": {
+    "message": "$COUNT$ files",
+    "description": "Plural file count",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastAdded": {
+    "message": "Added $FILES$ to $FIELD$",
+    "description": "Success message, e.g. 'Added 3 files to Attachments'",
+    "placeholders": {
+      "files": {
+        "content": "$1"
+      },
+      "field": {
+        "content": "$2"
+      }
+    }
+  },
+  "toastSkipped": {
+    "message": "$FILES$ skipped: not an accepted type",
+    "description": "Shown when some files were filtered out",
+    "placeholders": {
+      "files": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastNoneAccepted": {
+    "message": "These files aren't accepted here",
+    "description": "Error when no dropped file matches"
+  },
+  "toastAcceptedTypes": {
+    "message": "Accepted: $TYPES$",
+    "description": "Lists accepted types",
+    "placeholders": {
+      "types": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastOneFileOnly": {
+    "message": "$FIELD$ takes one file",
+    "description": "Shown when several files are dropped on a single-file field",
+    "placeholders": {
+      "field": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastNoReaction": {
+    "message": "The site didn't seem to react. If the file isn't there, use the file picker.",
+    "description": "Hint after a drop on a hidden upload field"
+  },
+  "toastTriggerFailed": {
+    "message": "This button didn't take the drop",
+    "description": "Shown when trigger capture timed out"
+  },
+  "toastTriggerUnavailable": {
+    "message": "Drops on buttons aren't available in this frame",
+    "description": "Shown when the capture helper isn't loaded"
+  },
+  "actionUseFirst": {
+    "message": "Use first file",
+    "description": "Button"
+  },
+  "actionCancel": {
+    "message": "Cancel",
+    "description": "Button"
+  },
+  "actionOpenPicker": {
+    "message": "Open file picker",
+    "description": "Button"
+  },
+  "actionClickForMe": {
+    "message": "Click it for me",
+    "description": "Button that clicks the upload button on the user's behalf"
+  },
+  "actionDismiss": {
+    "message": "Dismiss",
+    "description": "Close button accessible label"
+  },
+  "uploadFieldFallback": {
+    "message": "upload field",
+    "description": "Name used when an upload field has no label"
+  },
+  "popupEnabledHere": {
+    "message": "On for this site",
+    "description": "Popup toggle label"
+  },
+  "popupDisabledGlobally": {
+    "message": "DnD Anywhere is turned off everywhere. Turn it on in Options.",
+    "description": "Popup notice"
+  },
+  "popupFieldsDetected": {
+    "message": "$COUNT$ upload field(s) found on this page",
+    "description": "Popup status",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNoFields": {
+    "message": "No upload fields found on this page yet",
+    "description": "Popup status"
+  },
+  "popupUnavailable": {
+    "message": "Browsers don't allow extensions on this page",
+    "description": "Popup status on chrome:// and store pages"
+  },
+  "popupReportSite": {
+    "message": "Not working here? Report this site",
+    "description": "Popup link"
+  },
+  "popupReportConfirm": {
+    "message": "This opens a public GitHub issue form with only this site's address ($ORIGIN$) filled in. Continue?",
+    "description": "Confirmation before opening the issue form",
+    "placeholders": {
+      "origin": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupCopyDiagnostics": {
+    "message": "Copy diagnostic report",
+    "description": "Popup button"
+  },
+  "popupCopied": {
+    "message": "Copied",
+    "description": "Popup confirmation"
+  },
+  "popupOptions": {
+    "message": "Options",
+    "description": "Popup link"
+  },
+  "popupPrivacy": {
+    "message": "Privacy",
+    "description": "Popup link"
+  },
+  "popupSource": {
+    "message": "Source code",
+    "description": "Popup link"
+  },
+  "optionsTitle": {
+    "message": "DnD Anywhere options",
+    "description": "Options page title"
+  },
+  "optionsGeneral": {
+    "message": "General",
+    "description": "Section heading"
+  },
+  "optionsEnabled": {
+    "message": "Turn on DnD Anywhere",
+    "description": "Checkbox"
+  },
+  "optionsEnabledHint": {
+    "message": "When off, nothing runs on any site.",
+    "description": "Hint"
+  },
+  "optionsDisabledSites": {
+    "message": "Sites where it's off",
+    "description": "Heading"
+  },
+  "optionsDisabledSitesEmpty": {
+    "message": "None. Turn it off for a site from the toolbar button.",
+    "description": "Empty state"
+  },
+  "optionsRemove": {
+    "message": "Remove",
+    "description": "Button"
+  },
+  "optionsBehavior": {
+    "message": "Behavior",
+    "description": "Section heading"
+  },
+  "optionsStrictAccept": {
+    "message": "Only accept file types the site asks for",
+    "description": "Checkbox"
+  },
+  "optionsStrictAcceptHint": {
+    "message": "Uses the upload field's accepted types. Turn off to drop anything; the site may still reject it.",
+    "description": "Hint"
+  },
+  "optionsPageFallback": {
+    "message": "Drop anywhere when a page has one upload field",
+    "description": "Checkbox"
+  },
+  "optionsPageFallbackHint": {
+    "message": "The whole page becomes a drop zone for that field.",
+    "description": "Hint"
+  },
+  "optionsTriggerCapture": {
+    "message": "Drop onto upload buttons",
+    "description": "Checkbox"
+  },
+  "optionsTriggerCaptureHint": {
+    "message": "For buttons that open a file picker without a visible field. Found by the button's wording, so it can guess wrong.",
+    "description": "Hint"
+  },
+  "optionsClosedShadow": {
+    "message": "Look inside closed web components",
+    "description": "Checkbox"
+  },
+  "optionsClosedShadowHint": {
+    "message": "Finds upload fields that some component libraries hide from scripts.",
+    "description": "Hint"
+  },
+  "optionsForceModifier": {
+    "message": "Key to use our drop zones on sites with their own",
+    "description": "Select label"
+  },
+  "optionsForceModifierHint": {
+    "message": "Hold it while dragging. Sites with their own drag and drop are left alone otherwise.",
+    "description": "Hint"
+  },
+  "optionsModifierNone": {
+    "message": "None",
+    "description": "Select option"
+  },
+  "optionsAppearance": {
+    "message": "Appearance",
+    "description": "Section heading"
+  },
+  "optionsAccent": {
+    "message": "Drop zone color",
+    "description": "Color input label"
+  },
+  "optionsMotion": {
+    "message": "Animations",
+    "description": "Select label"
+  },
+  "optionsMotionSystem": {
+    "message": "Follow system setting",
+    "description": "Select option"
+  },
+  "optionsMotionReduce": {
+    "message": "Reduce",
+    "description": "Select option"
+  },
+  "optionsMotionAllow": {
+    "message": "Allow",
+    "description": "Select option"
+  },
+  "optionsAdvanced": {
+    "message": "Advanced",
+    "description": "Section heading"
+  },
+  "optionsDebug": {
+    "message": "Debug logging",
+    "description": "Checkbox"
+  },
+  "optionsDebugHint": {
+    "message": "Logs how upload fields were found to the page console, prefixed [dnd-anywhere]. No file names or page content.",
+    "description": "Hint"
+  },
+  "optionsExport": {
+    "message": "Export settings",
+    "description": "Button"
+  },
+  "optionsImport": {
+    "message": "Import settings",
+    "description": "Button"
+  },
+  "optionsImported": {
+    "message": "Settings imported",
+    "description": "Status"
+  },
+  "optionsImportFailed": {
+    "message": "That file isn't a settings export",
+    "description": "Status"
+  },
+  "optionsReset": {
+    "message": "Reset to defaults",
+    "description": "Button"
+  },
+  "optionsSaved": {
+    "message": "Saved",
+    "description": "Status"
+  },
+  "welcomeTitle": {
+    "message": "DnD Anywhere is ready",
+    "description": "Welcome page heading"
+  },
+  "welcomeLead": {
+    "message": "Drag files from your computer onto any upload button or file field. Drop zones appear while you drag.",
+    "description": "Welcome page lead"
+  },
+  "welcomeTryTitle": {
+    "message": "Try it",
+    "description": "Heading"
+  },
+  "welcomeTryHint": {
+    "message": "This field only has a Browse button. Drag a file from your desktop onto it.",
+    "description": "Demo hint"
+  },
+  "welcomeTryResult": {
+    "message": "Received: $NAMES$",
+    "description": "Demo result",
+    "placeholders": {
+      "names": {
+        "content": "$1"
+      }
+    }
+  },
+  "welcomePermissionTitle": {
+    "message": "Why it asks for access to all websites",
+    "description": "Heading"
+  },
+  "welcomePermissionBody": {
+    "message": "Upload fields can be on any site, so a small script has to be present on every page to find them. It stays idle until you drag files into the window.",
+    "description": "Body"
+  },
+  "welcomePrivacyTitle": {
+    "message": "Your files stay yours",
+    "description": "Heading"
+  },
+  "welcomePrivacyBody": {
+    "message": "DnD Anywhere makes no network requests and collects nothing. Files go only to the upload field you drop them on.",
+    "description": "Body"
+  }
+}

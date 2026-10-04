@@ -1,0 +1,60 @@
+{
+  "chrome-mv3": {
+    "permissions": ["storage"],
+    "optional_permissions": [],
+    "host_permissions": [],
+    "optional_host_permissions": [],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content-scripts/capture-shim.js"],
+        "run_at": "document_start",
+        "all_frames": true,
+        "world": "MAIN",
+        "match_origin_as_fallback": true
+      },
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content-scripts/content.js"],
+        "run_at": "document_idle",
+        "all_frames": true,
+        "world": "ISOLATED",
+        "match_origin_as_fallback": true
+      }
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'none'"
+    },
+    "web_accessible_resources": [],
+    "externally_connectable": null
+  },
+  "firefox-mv3": {
+    "permissions": ["storage"],
+    "optional_permissions": [],
+    "host_permissions": [],
+    "optional_host_permissions": [],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content-scripts/capture-shim.js"],
+        "run_at": "document_start",
+        "all_frames": true,
+        "world": "MAIN",
+        "match_origin_as_fallback": true
+      },
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content-scripts/content.js"],
+        "run_at": "document_idle",
+        "all_frames": true,
+        "world": "ISOLATED",
+        "match_origin_as_fallback": true
+      }
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'none'"
+    },
+    "web_accessible_resources": [],
+    "externally_connectable": null
+  }
+}

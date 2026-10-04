@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Closed shadow root</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>Input inside a closed shadow root</h1>
+    <x-uploader id="host"></x-uploader>
+    <p id="result"></p>
+    <script>
+      const root = document.getElementById("host").attachShadow({ mode: "closed" });
+      root.innerHTML = '<input type="file" aria-label="Closed upload">';
+      root
+        .querySelector("input")
+        .addEventListener("change", (event) => showFiles(event.target.files));
+    </script>
+  </body>
+</html>

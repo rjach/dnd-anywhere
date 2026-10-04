@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Apply: Product Designer</title>
+    <style>
+      body {
+        margin: 0;
+        font:
+          15px/1.5 system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        background: #f4f4f2;
+        color: #16181b;
+      }
+      header {
+        background: #fff;
+        border-bottom: 1px solid #e3e3df;
+        padding: 16px 48px;
+        font-weight: 700;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      header i {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: #0f766e;
+        display: inline-block;
+      }
+      main {
+        max-width: 760px;
+        margin: 36px auto;
+        background: #fff;
+        border: 1px solid #e3e3df;
+        border-radius: 14px;
+        padding: 32px 40px;
+      }
+      h1 {
+        margin: 0 0 4px;
+        font-size: 26px;
+        letter-spacing: -0.02em;
+      }
+      .sub {
+        color: #6b6f76;
+        margin: 0 0 24px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      label.t {
+        display: block;
+        font-weight: 600;
+        font-size: 13.5px;
+        margin: 16px 0 6px;
+      }
+      .in {
+        border: 1px solid #d4d5d0;
+        border-radius: 8px;
+        padding: 9px 12px;
+        color: #33363b;
+      }
+      .up {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 9px 16px;
+        border-radius: 8px;
+        background: #16181b;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .hint {
+        color: #8a8e95;
+        font-size: 13.5px;
+      }
+      .ok {
+        color: #157f3c;
+        font-weight: 600;
+      }
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        height: 90px;
+        border: 1px solid #d4d5d0;
+        border-radius: 8px;
+        font: inherit;
+        padding: 9px 12px;
+      }
+      .submit {
+        margin-top: 24px;
+        padding: 11px 20px;
+        border-radius: 8px;
+        background: #0f766e;
+        color: #fff;
+        font-weight: 600;
+        border: 0;
+        font: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header><i></i> Northwind Careers</header>
+    <main>
+      <h1>Product Designer</h1>
+      <p class="sub">Remote · Full time</p>
+      <div class="row">
+        <div>
+          <label class="t">Full name</label>
+          <div class="in">Ada Lovelace</div>
+        </div>
+        <div>
+          <label class="t">Email</label>
+          <div class="in">ada@example.com</div>
+        </div>
+      </div>
+      <label class="t">Resume</label>
+      <div class="up">
+        <label class="btn" for="resume">Browse…</label>
+        <input id="resume" type="file" accept=".pdf,.doc,.docx" hidden />
+        <span class="hint" id="resume-name">PDF or Word, up to 10 MB</span>
+      </div>
+      <label class="t">Portfolio samples</label>
+      <div class="up">
+        <button class="btn" type="button" id="samples">Upload images</button>
+        <span class="hint" id="samples-name">Up to 5 images</span>
+      </div>
+      <label class="t">Anything else?</label>
+      <textarea>I'd love to tell you about…</textarea>
+      <button class="submit" type="button">Submit application</button>
+    </main>
+    <script>
+      const resume = document.getElementById("resume");
+      resume.addEventListener("change", () => {
+        const name = document.getElementById("resume-name");
+        name.textContent = "✓ " + [...resume.files].map((f) => f.name).join(", ");
+        name.className = "ok";
+      });
+      document.getElementById("samples").addEventListener("click", () => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+        input.multiple = true;
+        input.onchange = () => {
+          const name = document.getElementById("samples-name");
+          name.textContent = "✓ " + [...input.files].map((f) => f.name).join(", ");
+          name.className = "ok";
+        };
+        input.click();
+      });
+    </script>
+  </body>
+</html>

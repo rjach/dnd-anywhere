@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Accept and multiple</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>Images only, several allowed</h1>
+    <input
+      id="file"
+      type="file"
+      accept="image/*"
+      multiple
+      aria-label="Gallery"
+      onchange="showFiles(this.files)"
+    />
+    <p id="result"></p>
+  </body>
+</html>

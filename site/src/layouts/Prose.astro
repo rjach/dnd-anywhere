@@ -1,0 +1,30 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  frontmatter?: { title?: string; description?: string; updated?: string };
+  title?: string;
+  description?: string;
+}
+
+const frontmatter = Astro.props.frontmatter ?? Astro.props;
+---
+
+<Base title={frontmatter.title} description={frontmatter.description}>
+  <article class="wrap prose page">
+    {frontmatter.title && <h1>{frontmatter.title}</h1>}
+    {frontmatter.updated && <p class="updated">Last updated {frontmatter.updated}</p>}
+    <slot />
+  </article>
+</Base>
+
+<style>
+  .page {
+    padding-top: 56px;
+  }
+  .updated {
+    color: var(--text-3);
+    font-size: 15px;
+    margin-top: 0;
+  }
+</style>

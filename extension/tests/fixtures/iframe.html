@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Iframes</title>
+    <link rel="stylesheet" href="common.css" />
+  </head>
+  <body>
+    <h1>Same-origin and cross-origin iframes</h1>
+    <iframe id="same" src="plain.html" width="500" height="220"></iframe>
+    <iframe id="cross" width="500" height="220"></iframe>
+    <script>
+      // The cross-origin copy is served by the second fixture server port.
+      const crossPort = Number(location.port) + 1;
+      document.getElementById("cross").src =
+        `${location.protocol}//127.0.0.1:${crossPort}/plain.html`;
+    </script>
+  </body>
+</html>

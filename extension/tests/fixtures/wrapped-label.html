@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Wrapped label</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>Input wrapped in a styled label</h1>
+    <label class="btn" id="anchor"
+      >Attach
+      <input type="file" style="display: none" onchange="showFiles(this.files)" />
+    </label>
+    <p id="result"></p>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/rjach/dnd-anywhere/discussions
+    about: Ask questions and discuss ideas with the community.
+  - name: Report a security vulnerability
+    url: https://github.com/rjach/dnd-anywhere/security/advisories/new
+    about: Please report security issues privately.
+  - name: Support and troubleshooting
+    url: https://rjach.github.io/dnd-anywhere/support/
+    about: Common problems and fixes.

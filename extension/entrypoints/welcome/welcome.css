@@ -1,0 +1,45 @@
+.welcome {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 16px 64px;
+  display: grid;
+  gap: 32px;
+}
+.welcome header {
+  display: grid;
+  gap: 12px;
+}
+.welcome h1 {
+  font-size: 28px;
+}
+.lead {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-2);
+}
+.demo {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.demo p {
+  margin: 0;
+}
+.demo-field {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.facts p {
+  margin: 6px 0 0;
+}

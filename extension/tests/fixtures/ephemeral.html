@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ephemeral input</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <h1>Button creates a detached input on click</h1>
+    <button class="btn" id="upload" type="button">Upload files</button>
+    <p id="result"></p>
+    <script>
+      document.getElementById("upload").addEventListener("click", () => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.multiple = true;
+        input.onchange = () => showFiles(input.files);
+        input.click();
+      });
+    </script>
+  </body>
+</html>

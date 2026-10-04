@@ -1,0 +1,12 @@
+# Changes to what the extension may do, how it is built, or what we promise
+# users need a maintainer's review.
+*                                   @rjach
+/extension/wxt.config.ts            @rjach
+/extension/manifest.snapshot.json   @rjach
+/extension/entrypoints/             @rjach
+/extension/src/core/capture-shim.ts @rjach
+/scripts/                           @rjach
+/.github/workflows/                 @rjach
+/store/                             @rjach
+/site/src/pages/privacy.md          @rjach
+/site/src/pages/terms.md            @rjach

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue form</title>
+    <link rel="stylesheet" href="common.css" />
+    <script src="/vendor/vue.js"></script>
+  </head>
+  <body>
+    <h1>Vue 3 form</h1>
+    <div id="app">
+      <label class="btn" for="file">Upload</label>
+      <input id="file" type="file" hidden multiple @change="onChange" />
+      <p id="result">{{ names }}</p>
+    </div>
+    <script>
+      Vue.createApp({
+        data: () => ({ names: "" }),
+        methods: {
+          onChange(event) {
+            this.names = [...event.target.files].map((file) => file.name).join(",");
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

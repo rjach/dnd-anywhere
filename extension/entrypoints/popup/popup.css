@@ -1,0 +1,84 @@
+body {
+  width: 320px;
+}
+.popup {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.head h1 {
+  font-size: 15px;
+}
+.notice {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  font-size: 12.5px;
+}
+.card {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.card p {
+  margin: 0;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+.host {
+  display: block;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.status {
+  margin-top: 10px !important;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.confirm {
+  display: grid;
+  gap: 8px;
+}
+.confirm p {
+  margin: 0;
+}
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+.linklike {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.foot nav {
+  display: flex;
+  gap: 10px;
+}
