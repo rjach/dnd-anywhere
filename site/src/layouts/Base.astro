@@ -21,6 +21,7 @@ const structuredData = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   license: "https://opensource.org/licenses/MIT",
   url: new URL(href(""), Astro.site).toString(),
+  ...(SITE.stores.chrome && { installUrl: SITE.stores.chrome }),
   author: { "@type": "Person", name: SITE.owner, url: SITE.ownerUrl },
 };
 const nav = [

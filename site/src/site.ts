@@ -10,7 +10,8 @@ export const SITE = {
   contactEmail: "hello@rojanacharya.com",
   /** Fill these in once each store listing is live; null shows "coming soon". */
   stores: {
-    chrome: null as string | null,
+    chrome: "https://chromewebstore.google.com/detail/incaomgmnnlenfbijijpjngndegcnmae" as
+      string | null,
     edge: null as string | null,
     firefox: null as string | null,
   },
