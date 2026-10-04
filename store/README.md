@@ -17,6 +17,14 @@ Regenerate screenshots and promo art from the real extension:
 pnpm --filter extension store:assets
 ```
 
+## Live listings
+
+| Store            | ID                                 | Status   |
+| ---------------- | ---------------------------------- | -------- |
+| Chrome Web Store | `incaomgmnnlenfbijijpjngndegcnmae` | Approved |
+| Edge Add-ons     | not submitted                      |          |
+| Firefox AMO      | not submitted                      |          |
+
 ## Shared listing facts
 
 - **Name:** DnD Anywhere

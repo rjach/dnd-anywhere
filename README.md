@@ -17,6 +17,7 @@
 </p>
 
 <p align="center">
+  <a href="https://chromewebstore.google.com/detail/incaomgmnnlenfbijijpjngndegcnmae"><b>Add to Chrome</b></a> ·
   <a href="https://rjach.github.io/dnd-anywhere/">Website</a> ·
   <a href="https://rjach.github.io/dnd-anywhere/privacy/">Privacy</a> ·
   <a href="https://rjach.github.io/dnd-anywhere/support/">Support</a> ·
@@ -29,13 +30,13 @@ Lots of sites only offer a "Browse…" button for uploads. DnD Anywhere turns ev
 
 ## Install
 
-| Browser                   | Status                        |
-| ------------------------- | ----------------------------- |
-| Chrome, Brave, Arc, Opera | Chrome Web Store: coming soon |
-| Microsoft Edge            | Edge Add-ons: coming soon     |
-| Firefox 128+              | Firefox Add-ons: coming soon  |
+| Browser                   | Status                                                                                        |
+| ------------------------- | --------------------------------------------------------------------------------------------- |
+| Chrome, Brave, Arc, Opera | [Chrome Web Store](https://chromewebstore.google.com/detail/incaomgmnnlenfbijijpjngndegcnmae) |
+| Microsoft Edge            | Edge Add-ons: coming soon                                                                     |
+| Firefox 128+              | Firefox Add-ons: coming soon                                                                  |
 
-Until the store listings are live, [install from source](#install-from-source).
+Edge and Firefox users can [install from source](#install-from-source) until those listings are live.
 
 ## How it works
 
